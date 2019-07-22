@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+   // variable
+   int number, capacity, remainder, more; 
+   // input 
+   cout << "Enter the number of people attending the meeting : ";
+   cin  >> number;
+   cout << "Enter the maximum room capacity : ";
+   cin  >> capacity;
+
+   // processing and output
+
+   if (number <= capacity){
+      more = capacity -number; 
+      cout << "It is legal to hold the meeting. "<<more<<"  more people can come." << endl;
+   }
+   else if (number > capacity){
+      remainder = number - capacity;
+      cout << "The meeting cannot be held due to fire regulations. "<<remainder<<" people have to leave." << endl;
+   }
+   else if (number == capacity){
+      cout << "The meeting van be held, but no more peopl can come in." << endl;
+   }
+   return 0;
+}
