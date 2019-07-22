@@ -1,0 +1,175 @@
+//Airines Program
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+   // variables
+   
+   char city, type;
+   int time, tickets;
+   double cost, totalCost, pay;
+   const int a=150;
+   const int b=100;
+   const int c=180;
+   const int d=120;
+   
+   // input 
+   cout << "Welcome to Fordham Airlines!" << endl; 
+   cout << "What is your destination? : ([C]hicago, [M]iami, or [P]ortland) ";  
+   cin  >> city;
+
+   // processing and output 
+   switch (city) 
+   {
+      case 'C':
+      case 'c':
+          cout << "Chicago is your destination!"  << endl;
+          cout << "What time will you travel? (Enter time between 0-2359): " << endl;
+          cin  >> time;
+          
+          if (time >=500 && time <=1900) 
+          {
+             cout << "What type of day are you traveling? (Week[d]ay or Week[e]nd) : " << endl;
+             cin  >> type;
+
+            if(type=='D' || type=='d')
+	   
+		cost = a/2;
+	    else if (type=='E' || type=='e')
+		cost = c/2;
+         }
+	     
+          else if ((time >0 && time <500) || (time >1900 && time <=2359))
+          {
+             cout << "What type of day are you traveling? (Week[d]ay or Week[e]nd) : " << endl;
+             cin>>type; 
+                switch (type) 
+                {
+                   case 'D': 
+                   case 'd':
+                      cost = b / 2;
+                   break;    
+
+                   case 'E':
+                   case 'e':
+                      cost = d / 2;
+                   break;
+                }
+          }
+         break;
+    
+   
+      case 'M':
+      case 'm':
+          cout << "Miami is your destination!" << endl;
+          cout << "What time will you travel? (Enter time between 0-2359) : " << endl;
+          cin  >> time;
+
+          if (time >=500 && time <1900)
+          {
+             cout << "What type of day are you traveling? (Week[d]ay or Week[e]nd) : " << endl;
+             cin  >> type;
+
+                switch (type) 
+                {
+                   case 'D':
+                   case 'd': 
+                      cost = a;
+                   break;
+
+                   case 'E':
+                   case 'e':
+                      cost = c;
+                   break;
+               }
+             
+          }
+          else if ((time >=0 && time <500) || (time >1900 && time<=2359))
+             cout << "What type of day are you traveling? (Week[d]ay or Week[e]nd) : " << endl;
+             cin  >> type;
+
+                switch (type) 
+                {
+                   case 'D':
+                   case 'd':
+                      cost = b;
+                   break;
+
+                   case 'E':
+                   case 'e':
+                      cost = d;
+                   break;
+                }
+	   break;
+
+      case 'P':
+      case 'p':
+          cout << "Portland is your destination!" << endl;
+          cout << "What time will you travel? (Enter time between 0-2359) : " << endl;
+          cin  >> time;
+          
+          if (time >=500 && time <=1900)              
+          {
+             cout << "What type of day are you traveling? (Week[d]ay or Week[e]nd) : " << endl;
+             cin >> type;
+
+                switch (type)
+                {   
+                   case 'D':
+                   case 'd':
+                      cost = 2*a;   
+                   break;
+                 
+                   case 'E':
+                   case 'e': 
+                      cost = 2*c;
+                   break;  
+                } 
+          }    
+          else if ((time >=0 && time <500) || (time >1900 && time <=2359)) 
+          {
+             cout << "What type of day are you traveling? (Week[d]ay or Week[e]nd) : ";
+             cin  >> type;
+
+                switch (type) 
+                {
+                   case 'D':
+                   case 'd':
+                      cost = 2*b;
+                   break;
+              
+                   case 'E':
+                   case 'e':
+                      cost = 2*d;
+                   break;
+                } 
+
+            }
+	  break;
+	}
+
+   // processing and output
+
+	cout << "How many tickets do you want? : " << endl;
+	cin  >> tickets;
+	
+        totalCost = tickets * cost;
+
+        cout << "You owe " << totalCost << " . " << endl; 
+
+	cout << "How much will you pay? : " << endl;
+	cin  >> pay;
+	            
+	if (pay < totalCost)
+           cout << "That is too little! No tickets ordered." << endl;
+           
+	else 
+	{
+	   cout << "You will get "<< pay - totalCost << " in change." << endl;
+	   cout << "Your tickets have been ordered!" << endl;
+
+	}  
+	return 0;
+}
