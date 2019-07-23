@@ -1,0 +1,30 @@
+// program to output a square
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+   //variables
+   int row, column, length;
+   char fillIn;
+
+   // input 
+   cout << "Enter the length of a square : ";
+   cin  >> length;
+   cout << "Enter the fill in character : ";
+   cin  >> fillIn;
+
+   // processing 
+   for (row=0; row<length; row++)
+   {
+	for (column=0; column<length; column++)
+	{
+		cout << "   " << fillIn << "   ";
+	}
+
+	cout << endl;
+   }
+
+   return 0;
+}
