@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+int main ()
+{
+   // variables
+  
+   double SStax, fedTax, stateTax, unionDues, insurance, grossPay, takeHomePay; 
+   int hours, dependents;
+
+   // init 
+  
+   cout.setf(ios::fixed);
+   cout.setf(ios::showpoint);
+   cout.precision(2);
+  
+   // input 
+  
+   cout << "Enter the number of hours worked rounded to a whole number of hours : ";
+   cin  >> hours;
+   cout << "Enter the number of dependents : ";
+   cin  >> dependents;
+   
+   // processing   
+
+   if (hours > 40)
+      grossPay = 16.78 * 40 + 1.5 * 16.78 * (hours - 40);
+   else 
+      grossPay = 16.78 * hours;
+   
+   SStax = (0.06 * grossPay);
+   fedTax = (0.14 * grossPay);
+   stateTax = (0.05 * grossPay);
+   unionDues = 10 ;
+   
+   if (dependents >= 3)
+      insurance = 35;
+   else
+      insurance = 0.00;
+
+   takeHomePay = grossPay - SStax - fedTax - stateTax - unionDues - insurance;
+
+   // output 
+  
+   cout << "Gross pay is " << grossPay << endl;
+
+   cout << "SS tax is " << SStax << endl;
+   cout << "Fed tax is " << fedTax << endl;
+   cout << "State tax is " << stateTax << endl;
+   cout << "Union dues is " << unionDues << endl;
+   cout << "Insurance is " << insurance << endl;
+
+   cout << "Take home pay is " << takeHomePay << endl;
+   
+
+   return 0;
+}
