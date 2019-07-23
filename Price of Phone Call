@@ -1,0 +1,55 @@
+// code to output price of a phone call
+
+#include <iostream>
+using namespace std;
+int main ()
+{
+	// variables
+	int time, minutes;
+	double cost;
+	char letter1, letter2, rerun;
+
+	do
+	{
+	   // input
+	   cout << "Enter the day of the week ([Mo]nday, [Tu]esday, [We]dnesday, [Th]ursday, [Fr]iday, [Sa]turday, [Su]nday : ";
+	   cin  >> letter1 >> letter2;
+	   
+	   // processing
+	   if (((letter1 == 'M') || (letter1 == 'm') || 
+               (letter1 == 'T') || (letter1 == 't') || 
+               (letter1 == 'W') || (letter1 == 'w') || 
+               (letter1 == 'F') || (letter1 == 'f')) && 
+               ((letter2 == 'O') || (letter2 == 'o') || 
+               (letter2 == 'U') || (letter2 == 'u') || 
+               (letter2 == 'E') || (letter2 == 'e') || 
+               (letter2 == 'H') || (letter2 == 'h') || 
+               (letter2 == 'R') || (letter2 == 'r'))) {
+		   cout << "Enter the starting time of the call (Enter time between 0-2359) : ";
+		   cin  >> time;
+		   cout << "Enter the duration of the phone call (in minutes) : ";
+		   cin  >> minutes;
+		
+	   		if (time >= 800 && time <= 1800)
+			{   
+			   cost = 0.40 * minutes;
+			}
+	   		else if ((time >= 0 && time <800) || (time >1800 && time <=2359)) 
+			{   
+			   cost = 0.25 * minutes;
+			}
+	   }
+	   else if (((letter1 == 'S') || (letter1 =='s')) && ((letter2 == 'A') || (letter2 == 'a') || (letter2 == 'U') || (letter2 == 'u'))) {
+	        cout << "Enter the duration of the call (in minutes) : ";
+	        cin  >> minutes;
+		cost = 0.15 * minutes;   
+	   }
+		
+	   // output
+	   	cout << "Your cost is " << cost << " dollars." << endl; 
+	   	cout << "Would you like to rerun another calculation? Y=yes N=no : ";
+	   	cin  >> rerun;
+	   } while (rerun == 'Y'|| rerun == 'y'); 
+
+	return 0;
+}
