@@ -1,0 +1,71 @@
+// vending machine twinkies program
+
+#include <iostream>
+using namespace std;
+
+bool validCoin(double coin)
+{
+     const double dollar = 1, quarter = .25, dime = .10,nickel = .05;
+     if(coin == nickel || coin == dime || coin == quarter || coin == dollar)
+             return true;
+     else
+             return false;
+}
+
+void twinkie ()
+{
+
+     double totalCoins=0, coin, change;
+     const double twinkieCost=3.50;
+
+     do
+     {  
+	  cout << "Enter a coin or dollar amount : ";
+	  cin  >> coin;
+
+ 	  if (validCoin(coin))
+	  {
+		totalCoins+= coin;
+		cout << "You have inserted " << totalCoins << " dollars. \n";
+		cout << "You still need to add " << (twinkieCost-totalCoins) << " more dollars.\n";
+	  }  
+	  else 
+	  {
+		cout << "A valid coin was not inserted." << endl;
+	  }  
+
+      } while (totalCoins < twinkieCost);
+
+   cout << "Enjoy your deep-fried twinkie! \n";
+   
+   change = (totalCoins-twinkieCost);
+   
+   if (change > 0)
+   {
+	cout << "Your change is " << change << " \n";
+   }
+
+	return;
+}
+
+int main ()
+{
+
+   // variables
+   char rerun;
+   
+   // init
+   cout.setf(ios::fixed);
+   cout.setf(ios::showpoint);
+   cout.precision(2); 
+
+   do 
+   {
+	twinkie();
+	cout << "Would you like to purchase another twinkie? : (Y=yes N=no)" << endl;	
+	cin  >> rerun;
+
+    } while (rerun == 'Y' || rerun == 'y');
+
+	return 0;
+}
