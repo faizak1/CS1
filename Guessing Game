@@ -1,0 +1,77 @@
+// code to output guessing game (lab #8)
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+// prototypes
+void input(int&, char&);
+void rollFlip(int&, char&);
+void score(int&, int, char&, char, int&);
+
+int main()
+{
+	//variables
+	int totalPoints=0, roll, generatedRoll, ranNumber, coinNumber;
+	char flip, generatedFlip, rerun;	
+	
+	//init
+	srand(time(NULL));
+	
+	// processing
+	do
+	{
+		input(roll, flip);
+		rollFlip(generatedRoll, generatedFlip);	
+		score(roll, generatedRoll, flip, generatedFlip, totalPoints);
+		cout << "Do you want to try again? (Y/N)" << endl;
+		cin  >> rerun;
+	
+	} while (rerun == 'Y' || rerun == 'y');
+
+	cout << "Goodbye. Thanks for playing! " << endl;
+
+	return 0;
+}
+
+void input(int& roll, char& flip)
+{
+	cout << "Guess a (6-sided) die roll and a coin flip (H ot T) : ";
+	cin  >> roll >> flip;
+}
+ 
+void rollFlip(int& generatedRoll, char& generatedFlip)
+{
+	int ranNumber; 
+
+	ranNumber = rand();
+	generatedRoll = (ranNumber % 6) + 1;
+
+	ranNumber = rand();
+	generatedFlip = (ranNumber % 2); 
+	
+	if (ranNumber % 2 == 0)
+		generatedFlip = 'H';
+
+	else if (ranNumber % 2 == 1)
+		generatedFlip = 'T';
+}
+
+void score (int& roll, int generatedRoll, char& flip, char generatedFlip, int& totalPoints) 
+{
+	if ((roll == generatedRoll) &&(flip == generatedFlip))
+	{
+		totalPoints+=10;
+
+		cout << "Correct! Die roll was " << generatedRoll << " , coin flip was " << generatedFlip << "  ." << endl;
+		cout << "Total points: " << totalPoints << "  " << endl;
+	}
+	else
+	{
+		totalPoints--;
+		
+		cout << "Incorrect! Die roll was " << generatedRoll << " , coin flip was " << generatedFlip << "  ." << endl;
+		cout << "Total points: " << totalPoints << "   " << endl;
+	}
+}
