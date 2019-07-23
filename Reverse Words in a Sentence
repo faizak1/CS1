@@ -1,0 +1,61 @@
+// reverse words in a sentence
+
+// prototype
+void reverseWord();
+
+#include<iostream>
+using namespace std;
+
+int main ()
+{
+	string sentence, rerun, thisWord = " ";
+	int len, i;
+	char letter;
+
+	do 
+	{
+		cout << " Enter sentence, a period at the end, to reverse words : ";
+		getline(cin, sentence);
+
+		len = sentence.length();
+		
+		for (i=0; i < len; i++)
+		{
+			letter = sentence.at(i);
+
+			if (letter == ' ' || letter == '.')
+			{
+				reverseWord(thisWord);
+				thisWord = "";
+			}
+			else 
+			{
+				thisWord = thisWord + letter;
+			}
+		}
+
+		cout << endl;
+	
+		cout << "Do you want to input another sentence (yes or no) : ";
+		getline(cin, rerun);
+
+		thisWord= "";
+
+	} while (rerun == "yes" || rerun == "YES" || rerun == "Yes");
+
+	return 0;
+}
+
+void reverseWord(string s)
+{
+	int i, len;
+
+	len = s.length();
+
+	for (i+len-1; i >=0; i--)
+	{
+		cout << s.at(i);
+	}
+
+	cout << "  ";
+}
