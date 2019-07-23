@@ -1,0 +1,25 @@
+// code that uses call by value (copy)
+
+#include <iostream>
+using namespace std;
+
+//prototypes
+void outputFunc(int);
+
+int main()
+{
+	int a;
+
+	a=100;
+	outputFunc(a);
+	cout << " A = " << a << endl; 
+
+	return 0;
+}
+
+void outputFunc(int x)
+{
+	cout << "X = " << x << endl;
+	x++; x++;
+	cout << "X = " << x << endl;
+}
