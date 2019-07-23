@@ -1,0 +1,62 @@
+// use a function call
+
+#include <iostream>
+using namespace std;
+
+bool numberIsOdd(int num) 
+{
+   if ((num % 2) == 1)
+	return true;
+   else 
+	return false;
+} 
+
+bool sumIs27(int num)
+{
+   // vars
+   int thou, hund, tens, ones;
+   
+   ones = num % 10;
+   tens = (num / 10) % 10;
+   hund = (num / 100) % 10;   
+   thou= (num / 1000) % 10;
+
+   if ((ones + tens + hund + thou) == 27)
+	return true;
+   else 
+	
+return false;
+}
+
+bool fourDifferentDigits (int num)
+{
+   // vars
+   int thou, hund, tens, ones;
+   
+   ones = num % 10;
+   tens = (num / 10) % 10;
+   hund = (num / 100) % 10;   
+   thou= (num / 1000) % 10;
+   
+   if (ones != tens && ones != hund && ones != thou && tens != hund && tens != thou && hund != thou)
+	return true;
+   else
+	return false;
+
+}
+
+bool thouIsThreeTimesTens (int num)
+{
+   // vars
+   int thou, hund, tens, ones;
+   
+   ones = num % 10;
+   tens = (num / 10) % 10;
+   hund = (num / 100) % 10;   
+   thou= (num / 1000) % 10;
+  
+    if (thou == 3*tens)
+	return true;
+   else 
+	return false;
+}
