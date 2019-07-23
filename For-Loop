@@ -1,0 +1,18 @@
+// for loop sample code
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+   // variables
+   int indx;
+  
+   // processing
+   for (indx = 0;indx < 5;indx++)
+   {
+      cout << "This is a loop!" << endl;
+   }
+
+   return 0;
+}
