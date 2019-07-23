@@ -1,0 +1,41 @@
+// program to swap two numbers
+
+#include <iostream>
+using namespace std;
+
+// prototypes
+void getNumbers(int&, int &);
+void swapValues(int&, int&);
+void showResults(int, int);
+
+int main()
+{
+	int firstNum=0, secondNum=0;
+
+	getNumbers(firstNum, secondNum);
+	swapValues(firstNum, secondNum);
+	showResults(firstNum, secondNum);
+
+	return 0;
+}
+
+void getNumbers(int& input1, int& input2)
+{
+	cout << "Enter two integers : ";
+	cin  >> input1 >> input2;
+}
+
+void swapValues(int& var1, int& var2)
+{
+	int temp;
+
+	temp = var1;
+	var1 = var2;
+	var2 = temp;
+}
+
+void showResults(int out1, int out2)
+{
+	cout << "In reverse order the numbers are : "
+	     << out1 << "  " << out2 << endl;
+}
