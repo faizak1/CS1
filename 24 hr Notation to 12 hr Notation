@@ -1,0 +1,57 @@
+// code to convert 24 hour notation to 12 hour notation (HW #8)
+
+#include <iostream>
+#include <ctime>
+#include <string>
+using namespace std;
+
+// prototypes
+void militaryTime(int& h, int& m);
+void convertTime(int& h, int& m, string& AMPM);
+void outputTime(int& h, int& m, string& AMPM); 
+
+int main ()
+{	
+	int h, m;
+        string AMPM;
+       
+ 	militaryTime(h, m);	
+	convertTime(h, m, AMPM);
+	outputTime(h, m, AMPM);
+
+	return 0;
+}
+
+void militaryTime (int& h, int& m)
+{
+	cout << "Enter the number of hours : ";
+	cin  >> h;
+	cout << "Enter the number of minutes :";
+	cin  >> m;
+}
+
+void convertTime(int& h, int& m, string& AMPM)
+{	
+	if (h >= 0 && h <= 12)
+	{	
+		h=h;
+		AMPM = "AM";
+	}
+	else if (h >12 && h <=24)
+       	{	
+		h= h - 12;
+		AMPM = "PM";
+	}
+}	
+
+void outputTime(int& h, int& m, string& AMPM)
+{
+	if(AMPM == "AM")
+	{			
+		cout << "The 12-hour notation (standard time) equivalent to this given time is " << h << ":" << m << "AM \n";
+	}
+	else if(AMPM == "PM")	
+	{
+		cout << "The 12-hour notation (standard time) equivalent to this given time is " << h << ":" << m << "PM\n";
+	}
+}
