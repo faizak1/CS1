@@ -1,0 +1,66 @@
+//find a number in 10000 element
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+// prototype
+bool findNumber(int [], int, int);
+
+int main()
+{
+	int query,i;
+	bool found;
+	int nums[10000];
+
+	srand(time(0));
+
+	for (i=0; i<10000; i++)
+	{
+		nums[i] = rand();
+	}
+
+	for (i=0; i<10; i++)
+	{
+		cout <<nums[i] << "    ";
+	}
+
+	cout << endl;
+
+	cout << "Enter a query number : ";
+	cin  >> query;
+
+	// code to find query number in the array list
+	found = findNumber(nums, 10000, query);
+	found = false;
+	
+	if (found == true)
+	{
+		cout << "Number was found!" << endl;
+	}
+	
+	else 
+	{
+		cout << "Number NOT found1" << endl;
+	}
+
+	return 0;
+}
+
+bool findNumber(int x[], int size, int q)
+{
+	int i;
+	bool rc;
+
+	for (i=0; i< size; i++)
+	{
+		if (x[i] == query) 
+		{
+			found = true;
+			break;
+		}
+	}	
+	
+	return rc;
+}
