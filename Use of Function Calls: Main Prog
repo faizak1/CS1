@@ -1,0 +1,35 @@
+// use of function calls
+
+#include <iostream>
+using namespace std;
+
+bool numberIsOdd(int);
+bool sumIs27(int);
+bool fourDifferentDigits(int);
+bool thouIsThreeTimesTens(int);
+
+int main()
+{
+   // vars 
+   int i;
+
+   // processing
+   for (i=1000;i <= 9999;i++)
+   {
+      if (numberIsOdd(i) == false)
+         continue;
+
+      if (sumIs27(i) == false)
+         continue;
+
+      if (fourDifferentDigits(i) == false)
+         continue;
+
+      if (thouIsThreeTimesTens(i) == false)
+         continue;
+
+      cout << i << " is an ODD number, the SUM is 27, the thousands digit is THREE times greater than the tens digit, and all four digits are DIFFERENT." << endl;
+   }
+
+   return 0;
+}
