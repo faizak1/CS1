@@ -1,0 +1,46 @@
+//code to output total grade
+
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+
+   cout.setf(ios::fixed);
+   cout.setf(ios::showpoint);
+   cout.precision(2);   
+
+   // variables
+   int exercise, counter, score, possible, totalScore = 0, totalPossible = 0;
+   double scoreTotal, pointsTotal, percent;
+
+   // input
+   cout << "Enter the number of exercises : ";
+   cin >> exercise;
+
+   // processing
+   while (exercise > 0)
+   {
+      //stat work
+      cout << "Enter the score received for exercise " << exercise << " : ";
+      cin  >> score;
+      totalScore += score;
+
+      cout << "Enter the total points possible for exercise " << exercise << " : ";
+      cin  >> possible;
+      totalPossible = totalPossible + possible;
+
+      exercise--;
+   }
+
+   
+  
+  
+   percent = (totalScore ) / (double) (totalPossible);
+   percent = percent * 100;
+
+   // output
+   cout << "Percent is: " << percent << "%" << endl; 
+   
+   return 0;
+}
