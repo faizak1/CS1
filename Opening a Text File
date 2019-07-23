@@ -1,0 +1,27 @@
+// program that makes use of files
+
+#include <fstream>
+using namespace std;
+
+int main ()
+{
+	//variables
+	int a, b, c, sum;
+	ifstream inStream;
+	ofstream outStream;
+
+	//init
+	inStream.open("infile.txt");
+	outStream.open("outfile.txt");
+
+	inStream>> a >> b >> c;
+
+	sum = a + b + c;
+
+	outStream << "The sum of the three numbers is " << sum << endl;
+
+	inStream.close();
+	outStream.close();
+
+	return 0;
+}
