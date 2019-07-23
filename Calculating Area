@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+   // variables
+   int length, width, area;
+
+   // input
+   cout << "Enter the length : ";
+   cin  >> length;
+   cout << " Enter the width : ";
+   cin  >> width;
+   
+   // processing
+   area = length * width;
+
+   // output
+   cout << "The area of carpenting you need is " << area << "square feet."  <<endl;
+
+   return 0;
+}
