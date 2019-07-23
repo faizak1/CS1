@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int main ()
+{
+	// variables
+	int num1, num2, GCD=1;
+	char rerun;
+
+	do
+	{
+
+		// input
+		cout << "Enter two numbers : ";
+		cin  >> num1 >> num2;
+
+		// processing
+
+		for (int i=1; i<= (num1, num2); i++)
+		{	
+			if (num1%i==0 && num2%i==0)
+			{	
+				GCD=max(GCD,i);
+			}	
+		}	
+		cout << "The GCD of " <<num1<< " and " <<num2<< " is " <<GCD<< " . ";
+		cout << "Would you like to rerun this program again? Y=yes N=no : ";
+		cin  >> rerun;
+	}
+	while (rerun == 'Y' || rerun == 'y');
+
+		cout << "Have a nice day!" << endl;
+
+	return 0;
+}
