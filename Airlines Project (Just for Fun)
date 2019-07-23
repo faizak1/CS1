@@ -1,0 +1,235 @@
+// airlines 
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+
+// proto type
+void display_seating();
+
+
+#define MAX_ROWS  20
+#define MAX_COLMS 6
+
+
+char seats[MAX_ROWS][MAX_COLMS];
+
+
+int main()
+{
+   string assign;
+   char prow1, prow2, pcolm, junk;
+   int i, j, row, colm;
+
+   // init
+   for (row=0;row < MAX_ROWS;row++)
+   {
+      for (colm=0;colm < MAX_COLMS;colm++)
+      {
+         seats[row][colm] = 'a' + colm;
+      }  
+   }  
+
+   // ask user to assign a seat
+   do 
+   {
+      system("clear");
+
+      display_seating();
+
+      cout << endl;
+      cout << "Enter a seat assignment (01A,01B,01C,01D,01E,01F,02A,02B,...,20F) (q=quit) : ";
+      cin  >> assign;
+
+      if (assign.at(0) != 'q')
+      {
+         if (assign.length() == 3)
+         {
+            prow1  = assign.at(0);
+            prow2  = assign.at(1);
+            pcolm  = assign.at(2);
+
+            row = 0;
+            if (prow1 == '0')
+            {
+               row  = prow2 - '1'; 
+            }
+            else if (prow1 == '1')
+            {
+               row = 9;
+               row = row + (prow2 - '0'); 
+            }
+            else if (prow1 == '2')
+            {
+               row = 19;
+               row  = row + (prow2 - '0'); 
+            }
+
+            colm = pcolm - 'A';
+
+            if (seats[row][colm] != 'X')
+               seats[row][colm] = 'X';
+            else
+            {
+               cout << 
+                "Sorry, seat is already taken! Press 'c' then <Enter>"
+                    << endl;
+   
+               cin  >> junk;
+            }
+         }
+         else
+         {
+            cout << "Sorry, invalid seat number was entered! Press 'c' then <Enter>"
+                 << endl;
+   
+            cin  >> junk;
+         }
+      }
+   } while (assign.at(0) != 'q');
+
+   
+   return 0;
+}
+
+
+void display_seating()
+{
+   int row, colm;
+
+   cout << endl << endl << endl;
+
+   
+   // display the seating assignments
+   for (row=0;row < MAX_ROWS;row++)
+   {
+      if (row <= 8)
+      {
+         if (row == 5)
+         {
+            cout << "                  /|  0" << row + 1 << ")  ";
+         }
+         else if (row == 6)
+         {
+            cout << "                /  |  0" << row + 1 << ")  ";
+         }
+         else if (row == 7)
+         {
+            cout << "              /    |  0" << row + 1 << ")  ";
+         }
+         else if (row == 8)
+         {
+            cout << "            /      |  0" << row + 1 << ")  ";
+         }
+         else
+         {
+            cout << "                   |  0" << row + 1 << ")  ";
+         }
+      }
+      else
+      {
+         if (row == 9)
+         {
+            cout << "          /        |  " << row + 1 << ")  ";
+         }
+         else if (row == 10)
+         {
+            cout << "        /          |  " << row + 1 << ")  ";
+         }
+         else if (row == 11)
+         {
+            cout << "      /            |  " << row + 1 << ")  ";
+         }
+         else if (row == 12)
+         {
+            cout << "    /              |  " << row + 1 << ")  ";
+         }
+         else if (row == 13)
+         {
+            cout << "   /               |  " << row + 1 << ")  ";
+         }
+         else if (row == 14)
+         {
+            cout << "  |                |  " << row + 1 << ")  ";
+         }
+         else if (row == 15)
+         {
+            cout << "  |                |  " << row + 1 << ")  ";
+         }
+         else if (row == 16)
+         {
+            cout << "  -----------------|  " << row + 1 << ")  ";
+         }
+         else
+         {
+            cout << "                   |  " << row + 1 << ")  ";
+         }
+      }
+
+      for (colm=0;colm < MAX_COLMS;colm++)
+      {
+         cout << seats[row][colm] << " ";
+
+         if (colm == 2)
+         {
+            cout << "    ";
+         }
+      }
+
+      if (row == 5)
+      {
+         cout << " |\\  " << endl;
+      }
+      else if (row == 6)
+      {
+         cout << " |  \\   " << endl;
+      }
+      else if (row == 7)
+      {
+         cout << " |    \\" << endl;
+      }
+      else if (row == 8)
+      {
+         cout << " |      \\" << endl;
+      }
+      else if (row == 9)
+      {
+         cout << " |        \\" << endl;
+      }
+      else if (row == 10)
+      {
+         cout << " |          \\" << endl;
+      }
+      else if (row == 11)
+      {
+         cout << " |            \\" << endl;
+      }
+      else if (row == 12)
+      {
+         cout << " |              \\" << endl;
+      }
+      else if (row == 13)
+      {
+         cout << " |               \\" << endl;
+      }
+      else if (row == 14)
+      {
+         cout << " |                |" << endl;
+      }
+      else if (row == 15)
+      {
+         cout << " |                |" << endl;
+      }
+      else if (row == 16)
+      {
+         cout << " |-----------------" << endl;
+      }
+      else
+      {
+         cout << " | " << endl;
+      }
+   }
+
+   cout << "                    ________________________" << endl;
+}	 
